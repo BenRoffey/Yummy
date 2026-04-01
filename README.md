@@ -6,13 +6,13 @@ Requires Steamodded - Download here https://github.com/Steamodded/smods/wiki
 Simply download Yummy and drop into your Mods folder
 
 ## Jokers
-Chef - Creates a random food joker on round start
+Chef - Creates a random Food Joker on round start
 
 Chocolate - X6 Mult, loses X1 Mult per hand played
 
 Pasta - X1 Mult, gains X1 Mult per hand played. Removed at the end of the round
 
-Porridge - X1 Chips for each food joker
+Porridge - X1 Chips for each Food Joker
 
 Curry - X2 Mult, loses X0.01 Mult per card played
 
