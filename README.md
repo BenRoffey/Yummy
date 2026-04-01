@@ -1,6 +1,10 @@
 # Yummy
 A Balatro mod that adds more food jokers, and food-themed consumables, enhancements, seals, booster packs and a special Boss Blind!
 
+Requires Steamodded - Download here https://github.com/Steamodded/smods/wiki
+
+Simply download Yummy and drop into your Mods folder
+
 ## Jokers
 Chef - Creates a random food joker on round start
 
