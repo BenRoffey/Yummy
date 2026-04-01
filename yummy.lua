@@ -1,8 +1,4 @@
---[[
-My first mod for Balatro!
-Just getting the hang of card effects and the steamodded api.
-Wish me luck!
-]]
+--Yummy!
 
 local food_jokers = {
     "j_gros_michel",
@@ -20,7 +16,8 @@ local food_jokers = {
 	"j_yummy_curry",
 	"j_yummy_pizza",
 	"j_yummy_burrito",
-	"j_yummy_soup"
+	"j_yummy_soup",
+	"j_yummy_coffee"
 }
 
 local function food_lookup(key)
@@ -88,12 +85,12 @@ SMODS.Joker {
 		}
 	},
 	config = {},
-	rarity = 2,
+	rarity = 3,
 	discovered = true,
 	atlas = "yummy",
 	eternal_compat = true,
 	pos = {x = 0, y = 0},
-	cost = 3,
+	cost = 8,
 	calculate = function(self, card, context)
 		if context.setting_blind and #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
 
@@ -125,12 +122,12 @@ SMODS.Joker {
 		}
 	},
 	config = {extra = { mult = 6, loss = 1}},
-	rarity = 1,
+	rarity = 2,
 	discovered = true,
 	atlas = "yummy",
 	eternal_compat = false,
 	pos = {x = 1, y = 0},
-	cost = 3,
+	cost = 6,
 	loc_vars = function(self, info_queue, card)
 		return { vars = {card.ability.extra.mult, card.ability.extra.loss}}
 	end,
@@ -177,7 +174,7 @@ SMODS.Joker {
 	atlas = "yummy",
 	eternal_compat = false,
 	pos = {x = 2, y = 0},
-	cost = 3,
+	cost = 5,
 	loc_vars = function(self, info_queue, card)
 		return { vars = {card.ability.extra.mult, card.ability.extra.gain}}
 	end,
@@ -222,12 +219,12 @@ SMODS.Joker {
 		}
 	},
 	config = {extra = { perFoodJoker = 1, bonus = 0}},
-	rarity = 1,
+	rarity = 3,
 	discovered = true,
 	atlas = "yummy",
 	eternal_compat = false,
 	pos = {x = 3, y = 0},
-	cost = 3,
+	cost = 8,
 	loc_vars = function(self, info_queue, card)
 		if G.jokers then
 			local x = 0
@@ -262,12 +259,12 @@ SMODS.Joker {
 		}
 	},
 	config = {extra = { xmult = 2, loss = 0.01}},
-	rarity = 1,
+	rarity = 2,
 	discovered = true,
 	atlas = "yummy",
 	eternal_compat = false,
 	pos = {x = 4, y = 0},
-	cost = 3,
+	cost = 6,
 	loc_vars = function(self, info_queue, card)
 		return { vars = {card.ability.extra.xmult, card.ability.extra.loss}}
 	end,
@@ -317,7 +314,7 @@ SMODS.Joker {
 	eternal_compat = true,
 	perishable_compat = true,
 	pos = {x = 0, y = 1},
-	cost = 3,
+	cost = 4,
 	loc_vars = function(self, info_queue, card)
 		local count = (G.consumeables and G.consumeables.cards and #G.consumeables.cards) or 0
 		card.ability.extra.current = count * card.ability.extra.mult
@@ -345,12 +342,12 @@ SMODS.Joker {
 		}
 	},
 	config = {extra = { xmult = 1.5, loss = 0.1}},
-	rarity = 1,
+	rarity = 2,
 	discovered = true,
 	atlas = "yummy",
 	eternal_compat = false,
 	pos = {x = 1, y = 1},
-	cost = 3,
+	cost = 6,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.xmult, card.ability.extra.loss}}
 	end,
@@ -390,12 +387,12 @@ SMODS.Joker {
 		}
 	},
 	config = {extra = { money = "$" , current = 0}},
-	rarity = 1,
+	rarity = 2,
 	discovered = true,
 	atlas = "yummy",
 	eternal_compat = false,
 	pos = {x = 2, y = 1},
-	cost = 3,
+	cost = 4,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.current }}
 	end,
@@ -432,12 +429,12 @@ SMODS.Joker {
 		}
 	},
 	config = {extra = { mult = 1, times = 25}},
-	rarity = 1,
+	rarity = 2,
 	discovered = true,
 	atlas = "yummy",
 	eternal_compat = false,
 	pos = {x = 3, y = 1},
-	cost = 3,
+	cost = 5,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.mult, card.ability.extra.times}}
 	end,
@@ -461,35 +458,6 @@ SMODS.Joker {
 		end
 	end
 }
-
-local function dump(o, indent, visited)
-    indent = indent or ""
-    visited = visited or {}
-
-    if type(o) ~= "table" then
-        print(indent .. tostring(o))
-        return
-    end
-
-    if visited[o] then
-        print(indent .. "<cycle>")
-        return
-    end
-    visited[o] = true
-
-    print(indent .. "{")
-    for k, v in pairs(o) do
-        local key = "[" .. tostring(k) .. "]"
-        if type(v) == "table" then
-            print(indent .. "  " .. key .. " = ")
-            dump(v, indent .. "    ", visited)
-        else
-            print(indent .. "  " .. key .. " = " .. tostring(v))
-        end
-    end
-    print(indent .. "}")
-end
-
 
 SMODS.Joker {
 	key = "coffee",
