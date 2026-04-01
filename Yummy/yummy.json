@@ -1,0 +1,12 @@
+{
+	"id": "yummy",
+	"name": "Yummy!",
+	"author": [ "Ben Roffey" ],
+	"description": "More tasty jokers!",
+	"prefix": "yummy",
+	"main_file": "yummy.lua",
+	"badge_colour": "6982A6",
+	"badge_text_colour": "FFFFFF",
+	"version": "0.0.1",
+	"priority":  -20
+}
